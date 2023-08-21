@@ -1,0 +1,40 @@
+student={}
+strength=0
+def input_add():
+    n = int(input("enter the strength of your class"))
+    for i in range(n):
+        enroll = int(input("enter the enrollno:"))
+        name=input("enter the name of student")
+        student.setdefault(enroll,[]).append(name)
+        print(student)
+def add_val():
+    n=int(input("enter the no of student you want to add details"))
+    for i in range(n):
+        enroll = int(input("enter the enrollno:"))
+        name = input("enter the name of student")
+        if enroll in student.keys():
+            print("this is already enrolled")
+            #update value
+        else:
+            student.setdefault(enroll, []).append(name)
+            print(student)
+
+def view_data():
+    print(student)
+crdentials=("Admin","@python")
+for i in range(3):
+    user_name = input("enter your username")
+    user_password = input("enter your password")
+
+    if user_name==crdentials[0]and user_password==crdentials[1]:
+        print("welcome to attendence management ")
+        print("insert the data of your class")
+        input_add()
+        ch=int(input("enter 1 to add,2 to view,3 to update,4 to delete"))
+        if ch==2:
+            view_data()
+        elif ch==1:
+            add_val()
+        break
+    else:
+        print("try again")
